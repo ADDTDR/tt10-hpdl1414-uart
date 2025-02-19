@@ -4,9 +4,8 @@
  */
 
 module pmod_1414 (
-		input CLK,      //-- 12 Mhz
-		output LEDG_N,  
-		output LEDR_N,
+		input CLK_i,      //-- 12 Mhz
+
 		// Data lines 
 		output HPDL_D0,
 		output HPDL_D1,
@@ -29,9 +28,6 @@ module pmod_1414 (
 
 );
 
-	// Turn off green LED
-	assign LEDG_N = 1'b1; 
-	assign LEDR_N = 1'b1;
 	
 	assign HPDL_D6 = w_data[6];
 	assign HPDL_D5 = w_data[5];
@@ -53,7 +49,7 @@ module pmod_1414 (
 	wire w_caret_strobe; 
 
 	// Generate slower clock signals  
-	always @(posedge CLK) 
+	always @(posedge CLK_i) 
 	r_counter <= r_counter + 1;
 	
 	// Generate slower clock in r_counter and assign and use it for hdpl display 
@@ -68,7 +64,7 @@ module pmod_1414 (
 	
 	// Character memory, bytes stored from  uart and taken by hpdl module 
 	memory mem_strorage(
-				.i_clk(CLK),
+				.i_clk(CLK_i),
 				.i_write_enable(mem_wen),
 				.i_read_enable(1'b1),
 				.i_write_address(r_uart_rx_counter),
@@ -102,7 +98,7 @@ module pmod_1414 (
 	always @(posedge RxD_data_ready)  GPout <= RxD_data;
 
 	// Receive w_data from uart 
-	uart_receiver RX(.clk(CLK), .RxD(UART_RX), .RxD_data_ready(RxD_data_ready), .RxD_data(RxD_data));
+	uart_receiver RX(.clk(CLK_i), .RxD(UART_RX), .RxD_data_ready(RxD_data_ready), .RxD_data(RxD_data));
 		
 	// Use negative edge to increment address r_counter only after byte is received 
 	always @(negedge RxD_data_ready)begin
@@ -118,6 +114,6 @@ module pmod_1414 (
 			end
 	end
 	
-	uart_transmitter TX(.clk(CLK), .TxD(UART_TX), .TxD_start(RxD_data_ready), .TxD_data(RxD_data), .TxD_busy(tx_busy));
+	uart_transmitter TX(.clk(CLK_i), .TxD(UART_TX), .TxD_start(RxD_data_ready), .TxD_data(RxD_data), .TxD_busy(tx_busy));
 
 endmodule
