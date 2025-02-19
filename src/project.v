@@ -20,24 +20,24 @@ module tt_um_hpdl1414_uart_atudoroi (
 pmod_1414 pmod_1414 (
 		.CLK_i(clk),      //-- 12 Mhz
 		// Data lines 
-		.HPDL_D0(uo[0]),
-		.HPDL_D1(uo[1]),
-		.HPDL_D2(uo[2]),
-		.HPDL_D3(uo[3]),
-		.HPDL_D4(uo[4]),
-		.HPDL_D5(uo[5]),
-		.HPDL_D6(uo[6]),
+		.HPDL_D0(uo_out[0]),
+		.HPDL_D1(uo_out[1]),
+		.HPDL_D2(uo_out[2]),
+		.HPDL_D3(uo_out[3]),
+		.HPDL_D4(uo_out[4]),
+		.HPDL_D5(uo_out[5]),
+		.HPDL_D6(uo_out[6]),
 		// Place address line 
-		.HPDL_A0(uio[0]),
-		.HPDL_A1(uio[1]),
+		.HPDL_A0(uio_out[0]),
+		.HPDL_A1(uio_out[1]),
 		// Write enable lines 
-		.HPDL_WR1(uio[2]),
-		.HPDL_WR2(uio[3]),
-		.HPDL_WR3(uio[4]),
-		.HPDL_WR4(uio[5]),
+		.HPDL_WR1(uio_out[2]),
+		.HPDL_WR2(uio_out[3]),
+		.HPDL_WR3(uio_out[4]),
+		.HPDL_WR4(uio_out[5]),
 		// Serial connections 
-		.UART_TX(uio[6]),
-		.UART_RX(uio[7])
+		.UART_TX(uio_out[6]),
+		.UART_RX(uio_in[7])
 
 );
 
