@@ -21,7 +21,7 @@ project:
     - "pmod_1414.v"
     - "uart.v"
     - "memory.v"
-    - "memory_init.txt"
+    # - "memory_init.txt"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:

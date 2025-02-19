@@ -3,9 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-module memory #(
-      parameter INIT_FILE = "memory_init.txt"
-  )(
+
+// gds fails with error on memory init file #(
+    //   parameter INIT_FILE = "memory_init.txt"
+    //   )
+module memory (
       input i_clk,
       input i_write_enable,
       input i_read_enable,
