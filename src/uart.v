@@ -73,7 +73,7 @@ module uart_receiver(
 	parameter ClkFrequency = 12000000; // 12MHz
 	parameter Baud = 115200;
 
-	parameter Oversampling = 8;  // needs to be a power of 2
+	parameter Oversampling = 16;  // needs to be a power of 2
 	// we oversample the RxD line at a fixed rate to capture each RxD data bit at the "right" time
 	// 8 times oversampling by default, use 16 for higher quality reception
 
