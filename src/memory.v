@@ -20,7 +20,7 @@ module memory (
 	  
 	  parameter CARETCHR = 8'h5f;
       localparam DISPLAY_LENGTH = 15;
-	  reg [7:0]  mem [0:16];
+	  reg [7:0]  mem [0:15];
       reg [0:0] r_shift_enable = 1'b0;
 	  integer i;
 
