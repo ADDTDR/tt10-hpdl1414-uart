@@ -32,24 +32,24 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
+  uo[0]: "HPDL_D0"
+  uo[1]: "HPDL_D1"
+  uo[2]: "HPDL_D2"
+  uo[3]: "HPDL_D3"
+  uo[4]: "HPDL_D4"
+  uo[5]: "HPDL_D5"
+  uo[6]: "HPDL_D6"
   uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "HPDL_A0"
+  uio[1]: "HPDL_A1"
+  uio[2]: "HPDL_WR1"
+  uio[3]: "HPDL_WR2"
+  uio[4]: "HPDL_WR3"
+  uio[5]: "HPDL_WR4"
+  uio[6]: "UART_TX"
+  uio[7]: "UART_RX"
 
 # Do not change!
 yaml_version: 6

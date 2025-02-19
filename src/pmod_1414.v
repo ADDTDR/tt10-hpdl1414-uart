@@ -24,8 +24,8 @@ module pmod_1414 (
 		output HPDL_WR3,
 		output HPDL_WR4,
 		// Serial connections 
-		output FTDI_TX,
-		input FTDI_RX
+		output UART_TX,
+		input UART_RX
 
 );
 
@@ -102,7 +102,7 @@ module pmod_1414 (
 	always @(posedge RxD_data_ready)  GPout <= RxD_data;
 
 	// Receive w_data from uart 
-	uart_receiver RX(.clk(CLK), .RxD(FTDI_RX), .RxD_data_ready(RxD_data_ready), .RxD_data(RxD_data));
+	uart_receiver RX(.clk(CLK), .RxD(UART_RX), .RxD_data_ready(RxD_data_ready), .RxD_data(RxD_data));
 		
 	// Use negative edge to increment address r_counter only after byte is received 
 	always @(negedge RxD_data_ready)begin
@@ -118,6 +118,6 @@ module pmod_1414 (
 			end
 	end
 	
-	uart_transmitter TX(.clk(CLK), .TxD(FTDI_TX), .TxD_start(RxD_data_ready), .TxD_data(RxD_data), .TxD_busy(tx_busy));
+	uart_transmitter TX(.clk(CLK), .TxD(UART_TX), .TxD_start(RxD_data_ready), .TxD_data(RxD_data), .TxD_busy(tx_busy));
 
 endmodule
