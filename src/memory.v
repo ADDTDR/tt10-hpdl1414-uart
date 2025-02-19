@@ -54,8 +54,8 @@ module memory (
           end
       end
 
-      initial if (INIT_FILE) begin
-          $readmemh(INIT_FILE, mem);
-      end
+    //   initial if (INIT_FILE) begin
+    //       $readmemh(INIT_FILE, mem);
+    //   end
     
 endmodule
