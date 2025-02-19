@@ -1,5 +1,8 @@
-////////////////////////////////////////////////////////
-//  Memory block for display buffer 
+/*
+ * Copyright (c) 2025 Andrew Tudoroi
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 module memory #(
       parameter INIT_FILE = "memory_init.txt"
   )(

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2025 Andrew Tudoroi
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 module pmod_1414 (
 		input CLK,      //-- 12 Mhz

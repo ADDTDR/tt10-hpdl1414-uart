@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2025 Andrew Tudoroi
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 `timescale 1ns/1ps
 `define DUMPSTR(x) `"x.vcd`"
 module pmod_1414_tb();
