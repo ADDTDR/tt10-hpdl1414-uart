@@ -37,8 +37,9 @@ module pmod_1414 (
 	assign HPDL_D1 = w_data[1];
 	assign HPDL_D0 = w_data[0];
 	// not used
-
+	assign UART_TX = 0;
 	wire _unused = &{w_data[7], tx_busy};
+	
 	// Clear code from serial 
 	localparam BKSP = 8'h08;
 	localparam DISPLAY_LENGTH = 15;
@@ -116,6 +117,6 @@ module pmod_1414 (
 			end
 	end
 	
-	uart_transmitter TX(.clk(CLK_i), .TxD(UART_TX), .TxD_start(RxD_data_ready), .TxD_data(RxD_data), .TxD_busy(tx_busy));
+	// uart_transmitter TX(.clk(CLK_i), .TxD(UART_TX), .TxD_start(RxD_data_ready), .TxD_data(RxD_data), .TxD_busy(tx_busy));
 
 endmodule
