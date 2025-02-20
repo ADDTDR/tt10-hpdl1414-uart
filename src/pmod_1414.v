@@ -36,7 +36,9 @@ module pmod_1414 (
 	assign HPDL_D2 = w_data[2];
 	assign HPDL_D1 = w_data[1];
 	assign HPDL_D0 = w_data[0];
+	// not used
 
+	wire _unused = &{w_data[7], tx_busy};
 	// Clear code from serial 
 	localparam BKSP = 8'h08;
 	localparam DISPLAY_LENGTH = 15;

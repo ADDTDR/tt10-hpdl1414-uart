@@ -52,6 +52,7 @@ pmod_1414 pmod_1414 (
 
 
   // // List all unused inputs to prevent warnings
-  wire _unused = &{ena,  rst_n, ui_in, 1'b0};
+  wire _unused = &{ena,  rst_n, ui_in, uio_in[6:0], 1'b0};
+ 
 
 endmodule
