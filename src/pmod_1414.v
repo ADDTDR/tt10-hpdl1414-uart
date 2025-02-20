@@ -38,7 +38,7 @@ module pmod_1414 (
 	assign HPDL_D0 = w_data[0];
 	// not used
 	assign UART_TX = 0;
-	wire _unused = &{w_data[7], tx_busy};
+	wire _unused = &{w_data[7]};
 	
 	// Clear code from serial 
 	localparam BKSP = 8'h08;
@@ -88,7 +88,7 @@ module pmod_1414 (
 	assign  HPDL_WR4 = (r_address_counter[3] == 1 && r_address_counter[2] == 1 ) ? w_hpdl_clk : 1'b1;
 
 	// Uart signals and bus 
-	wire tx_busy;
+	// wire tx_busy;
 	wire RxD_data_ready;
 	wire [7:0] RxD_data;
 	reg [7:0] GPout;
