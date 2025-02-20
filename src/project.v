@@ -47,8 +47,8 @@ pmod_1414 pmod_1414 (
   // assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
   // assign uio_out = 0;
   // assign uio_oe  = 0;
-  assign uo_out[7] = 0;
-  assign uio_out[7] = 0;
+  assign uo_out[7] = 1'b0;
+  assign uio_out[7] = 1'b0;
 
 
   // // List all unused inputs to prevent warnings
