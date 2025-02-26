@@ -38,7 +38,7 @@ module pmod_1414 (
 	assign HPDL_D0 = w_data[0];
 	// not used
 	assign UART_TX = 0;
-	wire _unused = &{w_data[7]};
+	wire _unused = &{w_data[7], w_Rx_idle, w_RxD_endofpacket};
 	
 	// Clear code from serial 
 	localparam BKSP = 8'h08;
@@ -87,11 +87,14 @@ module pmod_1414 (
 	assign  HPDL_WR3 = (r_address_counter[3] == 1 && r_address_counter[2] == 0 ) ? w_hpdl_clk : 1'b1;
 	assign  HPDL_WR4 = (r_address_counter[3] == 1 && r_address_counter[2] == 1 ) ? w_hpdl_clk : 1'b1;
 
-	// Uart signals and bus 
-	// wire tx_busy;
+
 	wire RxD_data_ready;
+	wire w_RxD_endofpacket;
+	wire w_Rx_idle;
 	wire [7:0] RxD_data;
 	reg [7:0] GPout;
+
+	
 	
 	// Disable memory write when backsp char received
 	wire mem_wen;
@@ -101,7 +104,14 @@ module pmod_1414 (
 	always @(posedge RxD_data_ready)  GPout <= RxD_data;
 
 	// Receive w_data from uart 
-	uart_receiver RX(.clk(CLK_i), .RxD(UART_RX), .RxD_data_ready(RxD_data_ready), .RxD_data(RxD_data));
+	uart_receiver RX(
+		.clk(CLK_i),
+		.RxD(UART_RX),
+		.RxD_data_ready(RxD_data_ready),
+		.RxD_data(RxD_data),
+		.RxD_idle(w_Rx_idle),
+		.RxD_endofpacket(w_RxD_endofpacket)
+		);
 		
 	// Use negative edge to increment address r_counter only after byte is received 
 	always @(negedge RxD_data_ready)begin
