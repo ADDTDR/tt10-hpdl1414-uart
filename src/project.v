@@ -37,7 +37,8 @@ pmod_1414 pmod_1414 (
 		.HPDL_WR4(uio_out[5]),
 		// Serial connections 
 		.UART_TX(uio_out[6]),
-		.UART_RX(uio_in[3])
+		.UART_RX(uio_in[3]),
+		.RESET_N(rst_n)
 
 );
 
@@ -52,7 +53,7 @@ pmod_1414 pmod_1414 (
 
 
   // // List all unused inputs to prevent warnings
-  wire _unused = &{ena,  rst_n, ui_in, uio_in[2:0], uio_in[7:4], 1'b0};
+  wire _unused = &{ena,  ui_in, uio_in[2:0], uio_in[7:4], 1'b0};
  
 
 endmodule
